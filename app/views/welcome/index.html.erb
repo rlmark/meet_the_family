@@ -1,9 +1,12 @@
 <div class="row">
-  <h1>Meet the family</h1>
-  <p>
-    Help your friends and loved ones meet your friends and loved ones.
-  </p>
+  <div class="col-md-8">
+    <h1>Meet the family</h1>
+    <p>
+      Help your friends and loved ones meet your friends and loved ones.
+    </p>
+  </div>
+  <div class="col-md-4">
+    <%= link_to "Sign up", new_user_path %>
+    <%= link_to "Sign in", root_path %>
+  </div>
 </div>
-
-<%= link_to "Sign up", new_user_path %>
-<%= link_to "Sign in", root_path %>

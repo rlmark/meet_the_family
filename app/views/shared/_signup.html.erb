@@ -1,0 +1,45 @@
+<div class="sign-up">
+
+  <%= form_for @user do |f| %>
+  <div class="form-field">
+    <%= f.label :firstname%>
+    <%= f.text_field :firstname, class: 'form-control'%>
+    <%= render "shared/error_messages", obj: @user, col: :firstname %>
+  </div>
+
+  <div class="form-field">
+    <%= f.label :lastname%>
+    <%= f.text_field :lastname, class: 'form-control'%>
+    <%= render "shared/error_messages", obj: @user, col: :lastname %>
+  </div>
+
+  <div class='form-field'>
+    <%= f.label :email%>
+    <%= f.text_field :email, class: 'form-control'%>
+    <%= render "shared/error_messages", obj: @user, col: :email %>
+  </div>
+
+  <div class="form-field">
+    <%= f.label :username %>
+    <%= f.text_field :username, class: 'form-control'%>
+    <%= render "shared/error_messages", obj: @user, col: :username %>
+  </div>
+
+  <div class="form-field">
+    <%= f.label :password%>
+    <%= f.password_field :password, class: 'form-control'%>
+    <%= render "shared/error_messages", obj: @user, col: :password %>
+  </div>
+
+  <div class="form-field">
+    <%= f.label :password_confirmation%>
+    <%= f.password_field :password_confirmation, class: 'form-control'%>
+    <%= render "shared/error_messages", obj: @user, col: :password_confirmation %>
+  </div>
+
+  <div class="form-field">
+    <%= f.submit "Become a Member", class: "btn btn-default" %>
+  </div>
+  <% end %>
+  
+</div>
