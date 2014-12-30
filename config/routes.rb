@@ -1,20 +1,29 @@
 Rails.application.routes.draw do
 
-  # Session Routs
-  post 'login',  to: 'sessions#create',  as: :login
-  delete 'sessions/destroy', to: 'sessions#destroy', as: :logout
+  # Decks Routes
+  get 'decks',          to: 'decks#index',        as: :decks
+  get 'decks/new',      to: 'decks#new',          as: :new_deck
+  post 'decks',         to: 'decks#create'
+  get 'decks/:id',      to: 'decks#show'          as: :deck
+  patch 'decks/:id',    to: 'decks#update'
+  delete 'decks/:id',   to: 'decks#destroy'
+  get 'decks/:id/edit', to: 'decks#edit',         as: :edit_deck
+
+  # Session Routes
+  post 'login',         to: 'sessions#create',    as: :login
+  delete 'logout',      to: 'sessions#destroy',   as: :logout
 
   # Home Route
-  get '/',  to: 'welcome#index', as: :root
+  get '/',              to: 'welcome#index',      as: :root
 
   # User Routes
-  get 'users',          to: 'users#index',      as: :users
-  get 'users/new',      to: 'users#new',        as: :new_user
+  get 'users',          to: 'users#index',        as: :users
+  get 'users/new',      to: 'users#new',          as: :new_user
   post 'users',         to: 'users#create'
-  get 'user/:id',       to: 'users#show',       as: :user
+  get 'user/:id',       to: 'users#show',         as: :user
   patch 'user/:id',     to: 'users#update'
   delete 'user/:id',    to: 'users#destroy'
-  get 'user/:id/edit',  to: 'users#edit',       as: :edit_user
+  get 'user/:id/edit',  to: 'users#edit',         as: :edit_user
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
