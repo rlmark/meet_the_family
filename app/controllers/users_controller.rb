@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      # Upon creation of new user, user is a seed relative 
+      # Upon creation of new user, user is a seed relative
       @user.is_a_relative
       session[:user_id] = @user.id
       redirect_to user_path(@user.id)
@@ -33,6 +33,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(current_user.id)
+    @decks = Deck.where(user_id: current_user.id)
   end
 
   private

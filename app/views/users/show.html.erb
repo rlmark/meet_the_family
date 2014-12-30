@@ -3,13 +3,14 @@
 <div class='deck-mgmt'>
   <h3>My Family and Friends Decks</h3>
 
-  <p>
-  Create new deck
-  </p>
+  <%= link_to "Create new deck", new_deck_path %>
+  
+  <ul>
+  <% @decks.each do |deck| %>
+    <li><%= link_to deck.name, deck_path(deck.id) %></li>
+  <% end %>
+  </ul>
 
-  <p>
-  All decks get listed here.
-  </p>
 </div>
 
 <h3>Edit Profile</h3>

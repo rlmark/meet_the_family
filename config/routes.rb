@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'decks',          to: 'decks#index',        as: :decks
   get 'decks/new',      to: 'decks#new',          as: :new_deck
   post 'decks',         to: 'decks#create'
-  get 'decks/:id',      to: 'decks#show'          as: :deck
+  get 'decks/:id',      to: 'decks#show',         as: :deck
   patch 'decks/:id',    to: 'decks#update'
   delete 'decks/:id',   to: 'decks#destroy'
   get 'decks/:id/edit', to: 'decks#edit',         as: :edit_deck

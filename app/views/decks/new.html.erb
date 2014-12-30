@@ -1,2 +1,16 @@
-<h1>Decks#new</h1>
-<p>Find me in app/views/decks/new.html.erb</p>
+<h1>Make a study deck</h1>
+
+<div class="deck-form">
+  <%= form_for @deck do |f| %>
+  <div class="form-field">
+    <%= f.label :name, "Name it"%>
+    <%= f.text_field :name, class: 'form-control'%>
+    <%= render "shared/error_messages", obj: @deck, col: :name %>
+  </div>
+
+  <div class="form-field">
+    <%= f.submit @deck.new_record? ? "Make it" : "Update", class: "btn btn-default" %>
+  </div>
+
+  <% end %>
+</div>
