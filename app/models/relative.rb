@@ -1,3 +1,4 @@
 class Relative < ActiveRecord::Base
-  has_one :user 
+  has_one :user
+  belongs_to :deck
 end
