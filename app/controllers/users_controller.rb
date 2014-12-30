@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      # Upon creation of new user, create user as relative
+      # Upon creation of new user, user is a seed relative 
       @user.is_a_relative
       session[:user_id] = @user.id
       redirect_to user_path(@user.id)
@@ -16,7 +16,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update(user_params)
+    if current_user.update(user_params)
+      flash.notice = "Your profile has been updated"
+    end
     redirect_to user_path
   end
 
