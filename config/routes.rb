@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
   # Session Routs
-  get 'login',  to: 'sessions#create',  as: :login
-  delete 'sessions/destroy'
+  post 'login',  to: 'sessions#create',  as: :login
+  delete 'sessions/destroy', to: 'sessions#destroy', as: :logout
 
   # Home Route
   get '/',  to: 'welcome#index', as: :root

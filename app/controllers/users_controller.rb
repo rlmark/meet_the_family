@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       # Upon creation of new user, create user as relative
+      @user.is_a_relative
       session[:user_id] = @user.id
       redirect_to user_path(@user.id)
     else
