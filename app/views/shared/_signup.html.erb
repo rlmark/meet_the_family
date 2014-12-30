@@ -1,14 +1,14 @@
 <div class="sign-up">
-
+  <h2> Sign Up</h2>
   <%= form_for @user do |f| %>
   <div class="form-field">
-    <%= f.label :firstname%>
+    <%= f.label :firstname, "First name"%>
     <%= f.text_field :firstname, class: 'form-control'%>
     <%= render "shared/error_messages", obj: @user, col: :firstname %>
   </div>
 
   <div class="form-field">
-    <%= f.label :lastname%>
+    <%= f.label :lastname, "Last name"%>
     <%= f.text_field :lastname, class: 'form-control'%>
     <%= render "shared/error_messages", obj: @user, col: :lastname %>
   </div>
@@ -38,8 +38,8 @@
   </div>
 
   <div class="form-field">
-    <%= f.submit "Become a Member", class: "btn btn-default" %>
+    <%= f.submit "Sign Up", class: "btn btn-default" %>
   </div>
   <% end %>
-  
+
 </div>

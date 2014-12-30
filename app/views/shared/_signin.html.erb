@@ -1,0 +1,18 @@
+<div class="sign-up">
+  <h2>Sign in</h2>
+  <%= form_tag login_path do %>
+  <div class="form-field">
+    <%= label_tag "user[username]", "Username" %>
+    <%= text_field_tag "user[username]", "", class: 'form-control' %>
+  </div>
+
+  <div class="form_field">
+    <%= label_tag "user[password]", "Password" %>
+    <%= password_field_tag "user[password]", "", class: 'form-control' %>
+  </div>
+
+  <div class="form_field">
+    <%= submit_tag "Sign in", class: 'btn btn-default' %>
+  </div>
+  <% end %>
+</div>
