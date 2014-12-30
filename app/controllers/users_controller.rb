@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      raise @user.inspect
       session[:user_id] = @user.id
     else
       @user
@@ -31,6 +30,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:firstname, :lastname, :email, :password, :password_confirmation)
+    params.require(:user).permit(:firstname, :lastname, :username, :email, :password, :password_confirmation)
   end
 end

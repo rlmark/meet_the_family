@@ -1,5 +1,10 @@
 <div class="sign-up">
+
   <h2>Sign in</h2>
+  <% if flash[:notice] %>
+  <p class='notice'><%= flash[:notice] %></p>
+  <% end %>
+
   <%= form_tag login_path do %>
   <div class="form-field">
     <%= label_tag "user[username]", "Username" %>
