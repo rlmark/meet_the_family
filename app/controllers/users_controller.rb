@@ -5,7 +5,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      # Upon creation of new user, create user as relative
       session[:user_id] = @user.id
+      redirect_to user_path(@user.id)
     else
       @user
       render "welcome/index"
