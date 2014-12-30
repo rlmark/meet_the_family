@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
+  belongs_to :relative
 
   validates_presence_of :firstname, :lastname, :username, :password, :password_confirmation
   validates :username, uniqueness: true, on: :create

@@ -8,5 +8,12 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
+  # TO DO: make this work, probably with before_filter
+  def authenticated?
+    if current_member == nil
+      redirect_to root_path
+    end
+  end
+
   helper_method :current_user
 end

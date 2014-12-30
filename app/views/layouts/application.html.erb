@@ -11,6 +11,7 @@
   <div class="container-fluid">
     <header>
       HI THIS IS A HEADER
+      <%= link_to "Logout", logout_path, method: :delete %>
     </header>
     <%= yield %>
   </div>
