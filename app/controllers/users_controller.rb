@@ -13,6 +13,8 @@ class UsersController < ApplicationController
   end
 
   def update
+    current_user.update(user_params)
+    redirect_to user_path
   end
 
   def edit
@@ -25,6 +27,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(current_user.id)
   end
 
   private
