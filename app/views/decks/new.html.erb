@@ -2,15 +2,14 @@
 
 <div class="deck-form">
   <%= form_for @deck do |f| %>
-  <div class="form-field">
-    <%= f.label :name, "Deck Name"%>
-    <%= f.text_field :name, class: 'form-control'%>
-    <%= render "shared/error_messages", obj: @deck, col: :name %>
-  </div>
+    <div class="form-field">
+      <%= f.label :name, "Deck Name"%>
+      <%= f.text_field :name, class: 'form-control'%>
+      <%= render "shared/error_messages", obj: @deck, col: :name %>
+    </div>
 
-  <div class="form-field">
-    <%= f.submit @deck.new_record? ? "Make it" : "Update", class: "btn btn-default" %>
-  </div>
-
+    <div class="form-field">
+      <%= f.submit @deck.new_record? ? "Make it" : "Update", class: "btn btn-default" %>
+    </div>
   <% end %>
 </div>

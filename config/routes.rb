@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
 
+  get 'relatives',      to: 'relatives#index',    as: :relatives
+  get 'relatives/new',  to: 'relatives#new',      as: :new_relative
+  post 'relatives',     to: 'relatives#create'
+  get 'relatives/:id'   to: 'relatives#show',     as: :relative
+  patch 'relatives/:id', to: 'relatives#update'
+  delete 'relatives/:id', to: 'relatives#destroy'
+  get 'relatives/:id/edit', to: 'relatives#edit', as: :edit_relative
+
+
+
+
   # Decks Routes
   get 'decks',          to: 'decks#index',        as: :decks
   get 'decks/new',      to: 'decks#new',          as: :new_deck
