@@ -1,5 +1,6 @@
 class RelativesController < ApplicationController
   def new
+    @relative = Relative.new
   end
 
   def create

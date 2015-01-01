@@ -1,2 +1,53 @@
-<h1>Relatives#new</h1>
-<p>Find me in app/views/relatives/new.html.erb</p>
+<h1>Who are these people?</h1>
+
+<div class='row'> <!-- row 3 column layout-->
+  <div class='col-sm-4'>
+    <h2>New card</h2>
+    <%= form_for @relative do |f| %>
+    <div class='form-field'>
+      <%= f.label :firstname, "First Name" %>
+      <%= f.text_field :firstname, class: 'form-control' %>
+    </div>
+
+    <div class='form-field'>
+      <%= f.label :lastname, "Last Name" %>
+      <%= f.text_field :lastname, class: 'form-control' %>
+    </div>
+
+    <div class='form-field'>
+      <b>Pronouns</b>
+      <ul>
+        <% [ 'his/him', 'her/hers', 'zhe/zhers', 'the/theirs', 'n/a' ].each do |pronoun| %>
+        <li><%= f.radio_button :pronouns, 'Pronoun'  %> <%= f.label :pronouns, pronoun %> </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class='form-field'>
+      <%= f.label :notes, "Notes" %>
+      <%= f.text_area :notes, class: 'form-control' %>
+    </div>
+
+    <div class='form-field'>
+      <%= f.label :likes, "Likes" %>
+      <%= f.text_area :likes, class: 'form-control' %>
+    </div>
+
+    <div class='form-field'>
+      <%= f.label :dislikes, "Dislikes" %>
+      <%= f.text_area :dislikes, class: 'form-control' %>
+    </div>
+
+    <div class="form-field">
+      <%= f.submit @relative.new_record? ? "Add to deck" : "Update", class: "btn btn-default" %>
+    </div>
+
+    <% end %>
+  </div>
+  <div class='col-sm-4'>
+    <h2>In this deck</h2>
+  </div>
+  <div class='col-sm-4'>
+    <h2>All relatives</h2>
+  </div>
+</div> <!-- end of 3 column layout-->

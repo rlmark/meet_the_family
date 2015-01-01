@@ -7,7 +7,7 @@ class DecksController < ApplicationController
     @deck = Deck.new(params.require(:deck).permit(:name))
     @deck.user_id = current_user.id
     if @deck.save
-      redirect_to user_path(current_user.id)
+      redirect_to new_relative_path
     else
       render :new
     end

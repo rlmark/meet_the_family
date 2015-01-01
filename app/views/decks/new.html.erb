@@ -1,15 +1,73 @@
 <h1>Make a study deck</h1>
 
-<div class="deck-form">
-  <%= form_for @deck do |f| %>
-    <div class="form-field">
-      <%= f.label :name, "Deck Name"%>
-      <%= f.text_field :name, class: 'form-control'%>
-      <%= render "shared/error_messages", obj: @deck, col: :name %>
-    </div>
+<div class="row"> <!-- row 1: name deck-->
+  <div class="col-md-12">
+    <div class="deck-form">
+      <%= form_for @deck do |f| %>
 
+      <div class="form-field">
+        <%= f.label :name, "Deck Name"%>
+        <%= f.text_field :name, class: 'form-control'%>
+        <%= render "shared/error_messages", obj: @deck, col: :name %>
+      </div>
+
+    </div>
+  </div>
+</div> <!-- end of row 1 -->
+
+<div class="row"> <!--row 2: submit -->
+  <div class="col-md-12"> <!--submit button for all form-->
     <div class="form-field">
       <%= f.submit @deck.new_record? ? "Make it" : "Update", class: "btn btn-default" %>
     </div>
-  <% end %>
-</div>
+    <% end %> <!--end of form for @deck-->
+  </div>
+</div> <!-- end of row 2: submit-->
+
+<div class='row'> <!-- row 2: column layout-->
+  <div class='col-sm-4'>
+    <h2>New card</h2>
+      <%= fields_for :relative do |relative| %>
+        <div class='form-field'>
+          <%= relative.label :firstname, "First Name" %>
+          <%= relative.text_field :firstname, class: 'form-control' %>
+        </div>
+
+        <div class='form-field'>
+          <%= relative.label :lastname, "Last Name" %>
+          <%= relative.text_field :lastname, class: 'form-control' %>
+        </div>
+
+        <div class='form-field'>
+          <b>Pronouns</b>
+          <ul>
+          <% [ 'his/him', 'her/hers', 'zhe/zhers', 'the/theirs', 'n/a' ].each do |pronoun| %>
+            <li><%= relative.radio_button 'Pronoun', pronoun %> <%= relative.label :pronouns, pronoun %> </li>
+          <% end %>
+          </ul>
+        </div>
+
+        <div class='form-field'>
+          <%= relative.label :notes, "Notes" %>
+          <%= relative.text_area :notes, class: 'form-control' %>
+        </div>
+
+        <div class='form-field'>
+          <%= relative.label :likes, "Likes" %>
+          <%= relative.text_area :likes, class: 'form-control' %>
+        </div>
+
+        <div class='form-field'>
+          <%= relative.label :dislikes, "Dislikes" %>
+          <%= relative.text_area :dislikes, class: 'form-control' %>
+        </div>
+
+      <% end %>
+  </div>
+  <div class='col-sm-4'>
+    <h2>In this deck</h2>
+  </div>
+  <div class='col-sm-4'>
+    <h2>All relatives</h2>
+  </div>
+</div> <!-- end of row 2: column layout-->
