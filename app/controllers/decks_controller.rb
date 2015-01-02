@@ -27,5 +27,7 @@ class DecksController < ApplicationController
   end
 
   def show
+    @deck = Deck.find(params[:id])
+    @relatives = Relative.where(deck_id: params[:id])
   end
 end

@@ -1,2 +1,4 @@
-<h1>Decks#show</h1>
-<p>Find me in app/views/decks/show.html.erb</p>
+<h1><%= @deck.name %></h1>
+<% @relatives.each do |relative| %>
+  <h3><%= relative.firstname %> <%= relative.lastname %></h3>
+<% end %>

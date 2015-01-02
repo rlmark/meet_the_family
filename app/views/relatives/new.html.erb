@@ -18,7 +18,7 @@
       <b>Pronouns</b>
       <ul>
         <% [ 'his/him', 'her/hers', 'zhe/zhers', 'the/theirs', 'n/a' ].each do |pronoun| %>
-        <li><%= f.radio_button :pronouns, 'Pronoun'  %> <%= f.label :pronouns, pronoun %> </li>
+        <li><%= f.radio_button :pronouns, pronoun  %> <%= f.label :pronouns, pronoun %> </li>
         <% end %>
       </ul>
     </div>
@@ -44,10 +44,21 @@
 
     <% end %>
   </div>
-  <div class='col-sm-4'>
+  <div class='col-sm-4'><!-- Relatives in this deck-->
     <h2>In this deck</h2>
-  </div>
-  <div class='col-sm-4'>
+    <ul>
+      <% @decks_relative.each do |relative| %>
+        <li><%= relative.firstname %> <%= relative.lastname %></li>
+      <% end %>
+    </ul>
+  </div><!-- End relatives in deck-->
+
+  <div class='col-sm-4'><!-- All relatives-->
     <h2>All relatives</h2>
-  </div>
+    <ul>
+      <% @relatives.each do |relative| %>
+        <li><%= relative.firstname %> <%= relative.lastname %></li>
+      <% end %>
+    </ul>
+  </div><!-- End all relatives-->
 </div> <!-- end of 3 column layout-->
