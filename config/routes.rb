@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
 
+  # Relations Join Table Routes
+  get 'relations/index',    to: 'relations#index',  as: :relations
+  get 'relations/new',      to: 'relations#new',    as: :new_relation
+  post 'relations/create',  to: 'relations#create'
+  get 'relations/:id',      to: 'relations#show',   as: :relation
+  patch 'relations/:id',    to: 'relations#update'
+  delete 'relations/:id',   to: 'relations#destroy'
+  get 'relations/:id/edit', to: 'relations#edit',   as: :edit_relation
+
   # Relatives Routes
   get 'relatives',      to: 'relatives#index',    as: :relatives
   get 'relatives/new',  to: 'relatives#new',      as: :new_relative
