@@ -4,6 +4,29 @@
   <div class='col-sm-4'>
     <h2>New card</h2>
     <%= form_for @relative do |f| %>
+
+    <!-- RELATIONS JOIN INFO-->
+    <%= fields_for @relation do |relation|%>
+
+      <div class='form-field'>
+        <%= relation.label :title, "Relation"%>
+        <%= relation.collection_select :title, Relation::TITLES, :to_s, :to_s,
+        :include_blank => false %>
+      </div>
+
+      <div class='form-field'>
+        <%= relation.label :step, "Step" %>
+        <%= relation.check_box :step %>
+      </div>
+
+      <div class='form-field'>
+        <%= relation.label :divorced, "Divorced" %>
+        <%= relation.check_box :divorced %>
+      </div>
+
+    <% end %>
+    <!-- END RELATIONS INFO-->
+
     <div class='form-field'>
       <%= f.label :firstname, "First Name" %>
       <%= f.text_field :firstname, class: 'form-control' %>
