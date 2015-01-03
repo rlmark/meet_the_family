@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_filter :authenticated?, :only => :create
-  
+
   def new
   end
 
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      flash.notice = "Your profile has been updated"
+      flash.alert = "Your profile has been updated"
     end
     redirect_to user_path
   end
