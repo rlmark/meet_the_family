@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_filter :authenticated?, :only => :create
+  
   def new
   end
 

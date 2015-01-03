@@ -28,10 +28,13 @@ class DecksController < ApplicationController
 
   def show
     @deck = Deck.find(params[:id])
+    if @deck.user_id != session[:user_id]
+      redirect_to root_path
+    end
     @relatives = Relative.where(deck_id: params[:id])
     @relations = @relatives.collect do |relative|
       Relation.find_by(relative_id: relative.id)
     end
-    
+
   end
 end
