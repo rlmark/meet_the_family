@@ -10,10 +10,13 @@ class ApplicationController < ActionController::Base
 
   # TO DO: make this work, probably with before_filter
   def authenticated?
-    if current_member == nil
+    if @current_user == nil
       redirect_to root_path
+  # This doesn't work. Need to say, if the current user's id is not the corresponding relations id, dont' show their family info.
     end
   end
 
+
   helper_method :current_user
+  #before_action :authenticated?
 end

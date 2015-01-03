@@ -40,7 +40,7 @@
     <div class='form-field'>
       <b>Pronouns</b>
       <ul>
-        <% [ 'his/him', 'her/hers', 'zhe/zhers', 'the/theirs', 'n/a' ].each do |pronoun| %>
+        <% [ 'his/him', 'her/hers', 'zhe/zhers', 'them/theirs', 'n/a' ].each do |pronoun| %>
         <li><%= f.radio_button :pronouns, pronoun  %> <%= f.label :pronouns, pronoun %> </li>
         <% end %>
       </ul>
@@ -80,8 +80,11 @@
     <h2>All relatives</h2>
     <ul>
       <% @relatives.each do |relative| %>
-        <li><%= relative.firstname %> <%= relative.lastname %></li>
+        <li><%= relative.firstname %> <%= relative.lastname %>
+          <%= link_to "Add to deck", update_relative_path( relative.id), method: 'patch' %>
+        </li>
       <% end %>
     </ul>
   </div><!-- End all relatives-->
 </div> <!-- end of 3 column layout-->
+<%= link_to "Done", user_path(current_user), class: 'btn btn-default' %>
