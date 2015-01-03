@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   def authenticated?
     if current_user == nil
       redirect_to root_path
+      flash.notice = "Please login or sign up."
   # This doesn't work. Need to say, if the current user's id is not the corresponding relations id, dont' show their family info.
     end
   end

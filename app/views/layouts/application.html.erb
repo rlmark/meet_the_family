@@ -10,11 +10,12 @@
 <body>
   <div class="container-fluid">
     <header>
-      HI THIS IS A PLACEHOLDER HEADER
-      <%= link_to "Logout", logout_path, method: :delete %>
       <% if current_user %>
         <%= link_to "Dashboard", user_path(current_user.id) %>
       <% end %>
+      <% if flash[:notice] %>
+      <p class='notice'><%= flash[:notice] %></p>
+      <% end %>      <%= link_to "Logout", logout_path, method: :delete %>
     </header>
     <%= yield %>
   </div>
