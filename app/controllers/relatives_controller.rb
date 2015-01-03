@@ -30,10 +30,18 @@ class RelativesController < ApplicationController
   end
 
   def update
-    @relative = Relative.find(params[:id])
-    @relative.deck_id = session[:deck_id]
-    @relative.save
-    redirect_to new_relative_path
+    if params[:add]
+      @relative = Relative.find(params[:add])
+      @relative.deck_id = session[:deck_id]
+      @relative.save
+      redirect_to new_relative_path
+    end
+    if params[:subtract]
+      @relative = Relative.find(params[:subtract])
+      @relative.deck_id = nil
+      @relative.save
+      redirect_to new_relative_path
+    end
   end
 
   def edit

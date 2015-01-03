@@ -1,4 +1,24 @@
 <h1><%= @deck.name %></h1>
-<% @relatives.each do |relative| %>
-  <h3><%= relative.firstname %> <%= relative.lastname %></h3>
+
+<% @relatives.each_with_index do |relative, i| %>
+
+
+
+  <h3><%= @relations[i].title %> <%= relative.firstname %> <%= relative.lastname %></h3>
+
+  <h4>Notes:</h4>
+  <p>
+    <%= relative.notes %>
+  </p>
+
+  <h4>Likes:</h4>
+  <p>
+    <%= relative.likes %>
+  </p>
+
+  <h4>Dislikes:</h4>
+  <p>
+    <%= relative.dislikes %>
+  </p>
+
 <% end %>

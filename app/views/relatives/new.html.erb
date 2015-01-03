@@ -71,7 +71,9 @@
     <h2>In this deck</h2>
     <ul>
       <% @decks_relative.each do |relative| %>
-        <li><%= relative.firstname %> <%= relative.lastname %></li>
+        <li><%= relative.firstname %> <%= relative.lastname %>
+          <%= link_to "Remove from deck", update_relative_path( :subtract => relative.id), method: 'patch' %>
+        </li>
       <% end %>
     </ul>
   </div><!-- End relatives in deck-->
@@ -81,7 +83,7 @@
     <ul>
       <% @relatives.each do |relative| %>
         <li><%= relative.firstname %> <%= relative.lastname %>
-          <%= link_to "Add to deck", update_relative_path( relative.id), method: 'patch' %>
+          <%= link_to "Add to deck", update_relative_path( :add => relative.id), method: 'patch' %>
         </li>
       <% end %>
     </ul>
