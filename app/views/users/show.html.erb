@@ -1,13 +1,14 @@
 <h2>Dashboard</h2>
 
 <div class='deck-mgmt'>
-  <h3>My Family and Friends Decks</h3>
+  <h3>My Family Decks</h3>
 
-  <%= link_to "Create new deck", new_deck_path %>
+  <%= link_to "Create new deck", new_deck_path, class: 'btn btn-default' %>
 
-  <ul>
+  <h4>My decks:</h4>
+  <ul class="no-bullets">
   <% @decks.each do |deck| %>
-    <li><%= link_to deck.name, deck_path(deck.id) %></li>
+    <li class='small-card'><%= link_to deck.name, deck_path(deck.id) %></li>
   <% end %>
   </ul>
 

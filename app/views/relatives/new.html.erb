@@ -39,7 +39,7 @@
 
     <div class='form-field'>
       <b>Pronouns</b>
-      <ul>
+      <ul class='no-bullets'>
         <% [ 'his/him', 'her/hers', 'zhe/zhers', 'them/theirs', 'n/a' ].each do |pronoun| %>
         <li><%= f.radio_button :pronouns, pronoun  %> <%= f.label :pronouns, pronoun %> </li>
         <% end %>
@@ -69,9 +69,9 @@
   </div>
   <div class='col-sm-4'><!-- Relatives in this deck-->
     <h2>In this deck</h2>
-    <ul>
+    <ul class='no-bullets'>
       <% @decks_relative.each do |relative| %>
-        <li><%= relative.firstname %> <%= relative.lastname %>
+        <li class='small-card'><%= relative.firstname %> <%= relative.lastname %>
           <%= link_to "Remove from deck", update_relative_path( :subtract => relative.id), method: 'patch' %>
         </li>
       <% end %>
@@ -80,9 +80,9 @@
 
   <div class='col-sm-4'><!-- All relatives-->
     <h2>All relatives</h2>
-    <ul>
+    <ul class='no-bullets'>
       <% @relatives.each do |relative| %>
-        <li><%= relative.firstname %> <%= relative.lastname %>
+        <li class='small-card'><%= relative.firstname %> <%= relative.lastname %>
           <%= link_to "Add to deck", update_relative_path( :add => relative.id), method: 'patch' %>
         </li>
       <% end %>

@@ -1,9 +1,9 @@
+
 <h1><%= @deck.name %></h1>
 
 <% @relatives.each_with_index do |relative, i| %>
 
-
-
+<div class='small-card'>
   <h3><%= @relations[i].title %> <%= relative.firstname %> <%= relative.lastname %></h3>
 
   <h4>Notes:</h4>
@@ -20,5 +20,7 @@
   <p>
     <%= relative.dislikes %>
   </p>
+</div>
+
 
 <% end %>
