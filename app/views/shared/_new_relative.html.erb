@@ -1,0 +1,64 @@
+<h2>New card</h2>
+<%= form_for @relative do |f| %>
+
+<!-- RELATIONS JOIN INFO-->
+<%= fields_for @relation do |relation|%>
+
+<div class='form-field'>
+  <%= relation.label :title, "Relation"%>
+  <%= relation.collection_select :title, Relation::TITLES, :to_s, :to_s,
+  :include_blank => false %>
+</div>
+
+<div class='form-field'>
+  <%= relation.label :step, "Step" %>
+  <%= relation.check_box :step %>
+</div>
+
+<div class='form-field'>
+  <%= relation.label :divorced, "Divorced" %>
+  <%= relation.check_box :divorced %>
+</div>
+
+<% end %>
+<!-- END RELATIONS INFO-->
+
+<div class='form-field'>
+  <%= f.label :firstname, "First Name" %>
+  <%= f.text_field :firstname, class: 'form-control' %>
+</div>
+
+<div class='form-field'>
+  <%= f.label :lastname, "Last Name" %>
+  <%= f.text_field :lastname, class: 'form-control' %>
+</div>
+
+<div class='form-field'>
+  <b>Pronouns</b>
+  <ul class='no-bullets'>
+    <% [ 'his/him', 'her/hers', 'zhe/zhers', 'them/theirs', 'n/a' ].each do |pronoun| %>
+    <li><%= f.radio_button :pronouns, pronoun  %> <%= f.label :pronouns, pronoun %> </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class='form-field'>
+  <%= f.label :notes, "Notes" %>
+  <%= f.text_area :notes, class: 'form-control' %>
+</div>
+
+<div class='form-field'>
+  <%= f.label :likes, "Likes" %>
+  <%= f.text_area :likes, class: 'form-control' %>
+</div>
+
+<div class='form-field'>
+  <%= f.label :dislikes, "Dislikes" %>
+  <%= f.text_area :dislikes, class: 'form-control' %>
+</div>
+
+<div class="form-field">
+  <%= f.submit @relative.new_record? ? "Add to deck" : "Update", class: "btn btn-default" %>
+</div>
+
+<% end %>
