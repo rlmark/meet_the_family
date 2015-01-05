@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap";
+/*@import "bootstrap";*/
 
 body {
   font-family: "Raleway", Helvetica, Arial, sans-serif;
