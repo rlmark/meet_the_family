@@ -44,6 +44,12 @@ header ul li:hover {
   top: 0;
   color: white;
 }
+.logo:nth-child(2){
+  color: #E4C045;
+}
+.logo:nth-child(3), .logo:nth-child(4), .logo:nth-child(5){
+  margin-right: -4px;
+}
 
 /*Site defaults*/
 
