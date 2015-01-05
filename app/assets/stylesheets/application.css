@@ -13,9 +13,46 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 body {
   font-family: "Raleway", Helvetica, Arial, sans-serif;
+}
+
+/*Header styling*/
+
+header ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+header ul li {
+  display: inline-block;
+  padding: 10px 15px 10px 15px;
+  border-right: 1px dotted #009792;
+}
+
+header ul li:first-child {
+  background-color: #009792;
+}
+
+header ul li:hover {
+}
+
+.logo {
+  top: 0;
+  color: white;
+}
+
+/*Site defaults*/
+
+a {
+  color: #009792;
+}
+a:hover {
+  text-decoration: none;
+  color: #006365;
 }
 
 .no-bullets {
@@ -25,13 +62,6 @@ body {
 
 .btn {
   margin: 10px 0;
-}
-
-.small-card {
-  background-color: #ddd;
-  padding: 10px;
-  border-radius: 6px;
-  margin-bottom: 10px;
 }
 
 @font-face {
