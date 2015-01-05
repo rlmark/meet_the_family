@@ -1,5 +1,8 @@
 class RelativesController < ApplicationController
   def new
+    # For the name of the deck
+    @deck = Deck.find(session[:deck_id])
+
     # Join table
     @relation = Relation.new
 
@@ -45,6 +48,7 @@ class RelativesController < ApplicationController
   end
 
   def edit
+    @deck = Deck.find(session[:deck_id])
     @relative = Relative.new
     @relation = Relation.new
     @decks_relative = Relative.where(deck_id: session[:deck_id])

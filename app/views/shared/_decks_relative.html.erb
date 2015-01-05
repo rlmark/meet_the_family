@@ -1,4 +1,4 @@
-<h2>In this deck</h2>
+<h2>In <%= @deck.name %> deck</h2>
 <ul class='no-bullets'>
   <% @decks_relative.each do |relative| %>
   <li class='small-card'><%= relative.firstname %> <%= relative.lastname %>
