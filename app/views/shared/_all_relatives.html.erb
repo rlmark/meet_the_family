@@ -3,7 +3,7 @@
   <% @relatives.each do |relative| %>
   <li class='small-card'>
     <%= link_to update_relative_path( :add => relative.id), method: 'patch' do %>
-      <span class="glyphicon glyphicon-plus-sign"></span>
+      <span class="glyphicon glyphicon-plus-sign add"></span>
     <% end %>
     <%= relative.firstname %> <%= relative.lastname %>
   </li>

@@ -3,3 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 //Dashboard styling
+
+.edit {
+  font-size: 20px;
+  color: #E4C045;
+}
+.edit:hover {
+  color: #BFA13A;
+}
+
+.delete {
+  font-size: 20px;
+  color: #BD2C58;
+}
+.delete:hover {
+  color: #9C2448
+}
+
+.deck-mgmt li {
+  font-size: 20px;
+}

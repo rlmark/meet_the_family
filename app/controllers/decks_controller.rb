@@ -25,6 +25,9 @@ class DecksController < ApplicationController
   end
 
   def destroy
+    @deck = Deck.find(params[:id])
+    @deck.destroy
+    redirect_to user_path(current_user.id)
   end
 
   def index

@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   post 'decks',         to: 'decks#create'
   get 'decks/:id',      to: 'decks#show',         as: :deck
   patch 'decks/:id',    to: 'decks#update'
-  delete 'decks/:id',   to: 'decks#destroy'
+  delete 'decks/:id',   to: 'decks#destroy',      as: :delete_deck
   get 'decks/:id/edit', to: 'decks#edit',         as: :edit_deck
 
   # Session Routes
