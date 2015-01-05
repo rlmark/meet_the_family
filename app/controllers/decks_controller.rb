@@ -15,9 +15,13 @@ class DecksController < ApplicationController
   end
 
   def update
+    @deck = Deck.update(params[:id], name: params[:deck][:name] )
+    session[:deck_id] = @deck.id
+    redirect_to edit_relative_path
   end
 
   def edit
+    @deck = Deck.find(params[:id])
   end
 
   def destroy
