@@ -8,14 +8,28 @@
   <link href='http://fonts.googleapis.com/css?family=Raleway:500,300' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <div class="container-fluid">
+  <div class="container">
     <header>
-      <% if current_user %>
-        <%= link_to "Dashboard", user_path(current_user.id) %>
+      <ul>
+        <li><span class="glyphicon glyphicon-user logo"> <span class="glyphicon glyphicon-plus logo"> <span class="glyphicon glyphicon-user logo"><span class="glyphicon glyphicon-user logo"><span class="glyphicon glyphicon-user logo"><span class="glyphicon glyphicon-user logo">
+        </li><!--
+      --><% if current_user %><!--
+      --><li>
+        <%= link_to user_path(current_user.id) do %>
+          <span class="glyphicon glyphicon-home"></span> Dashboard
+        <% end %>
+        </li><!--
+        --><li>
+        <%= link_to logout_path, method: :delete do %>
+          <span class="glyphicon glyphicon-log-out"></span> Logout
+        <% end %>
+        </li><!--
+      --><% end %><!--
+      --><% if flash[:notice] %><!--
+      --><li><%= flash[:notice] %></li>
       <% end %>
-      <% if flash[:notice] %>
-      <p class='notice'><%= flash[:notice] %></p>
-      <% end %>      <%= link_to "Logout", logout_path, method: :delete %>
+
+      </ul>
     </header>
     <%= yield %>
   </div>

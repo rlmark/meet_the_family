@@ -1,0 +1,16 @@
+<div class="row"> <!-- row 1: name deck-->
+  <div class="col-md-12">
+    <div class="deck-form">
+      <%= form_for @deck do |f| %>
+
+      <div class="form-field">
+        <%= f.label :name, "Deck Name"%>
+        <%= f.text_field :name, class: 'form-control'%>
+        <%= render "shared/error_messages", obj: @deck, col: :name %>
+      </div>
+
+      <%= f.submit @deck.new_record? ? "Make it" : "Update", class: "btn btn-default" %>
+      <% end %> <!--end of form for @deck-->
+    </div>
+  </div>
+</div> <!-- end of row 1 -->

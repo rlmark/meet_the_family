@@ -1,92 +1,18 @@
 <h1>Who are your people?</h1>
 
 <div class='row'> <!-- row 3 column layout-->
-  <div class='col-sm-4'>
-    <h2>New card</h2>
-    <%= form_for @relative do |f| %>
 
-    <!-- RELATIONS JOIN INFO-->
-    <%= fields_for @relation do |relation|%>
+  <div class='col-sm-4'><!-- New Relative Form-->
+    <%= render "shared/new_relative" %>
+  </div><!--End New relative form-->
 
-      <div class='form-field'>
-        <%= relation.label :title, "Relation"%>
-        <%= relation.collection_select :title, Relation::TITLES, :to_s, :to_s,
-        :include_blank => false %>
-      </div>
-
-      <div class='form-field'>
-        <%= relation.label :step, "Step" %>
-        <%= relation.check_box :step %>
-      </div>
-
-      <div class='form-field'>
-        <%= relation.label :divorced, "Divorced" %>
-        <%= relation.check_box :divorced %>
-      </div>
-
-    <% end %>
-    <!-- END RELATIONS INFO-->
-
-    <div class='form-field'>
-      <%= f.label :firstname, "First Name" %>
-      <%= f.text_field :firstname, class: 'form-control' %>
-    </div>
-
-    <div class='form-field'>
-      <%= f.label :lastname, "Last Name" %>
-      <%= f.text_field :lastname, class: 'form-control' %>
-    </div>
-
-    <div class='form-field'>
-      <b>Pronouns</b>
-      <ul class='no-bullets'>
-        <% [ 'his/him', 'her/hers', 'zhe/zhers', 'them/theirs', 'n/a' ].each do |pronoun| %>
-        <li><%= f.radio_button :pronouns, pronoun  %> <%= f.label :pronouns, pronoun %> </li>
-        <% end %>
-      </ul>
-    </div>
-
-    <div class='form-field'>
-      <%= f.label :notes, "Notes" %>
-      <%= f.text_area :notes, class: 'form-control' %>
-    </div>
-
-    <div class='form-field'>
-      <%= f.label :likes, "Likes" %>
-      <%= f.text_area :likes, class: 'form-control' %>
-    </div>
-
-    <div class='form-field'>
-      <%= f.label :dislikes, "Dislikes" %>
-      <%= f.text_area :dislikes, class: 'form-control' %>
-    </div>
-
-    <div class="form-field">
-      <%= f.submit @relative.new_record? ? "Add to deck" : "Update", class: "btn btn-default" %>
-    </div>
-
-    <% end %>
-  </div>
   <div class='col-sm-4'><!-- Relatives in this deck-->
-    <h2>In this deck</h2>
-    <ul class='no-bullets'>
-      <% @decks_relative.each do |relative| %>
-        <li class='small-card'><%= relative.firstname %> <%= relative.lastname %>
-          <%= link_to "Remove from deck", update_relative_path( :subtract => relative.id), method: 'patch' %>
-        </li>
-      <% end %>
-    </ul>
+    <%= render "shared/decks_relative" %>
   </div><!-- End relatives in deck-->
 
   <div class='col-sm-4'><!-- All relatives-->
-    <h2>All relatives</h2>
-    <ul class='no-bullets'>
-      <% @relatives.each do |relative| %>
-        <li class='small-card'><%= relative.firstname %> <%= relative.lastname %>
-          <%= link_to "Add to deck", update_relative_path( :add => relative.id), method: 'patch' %>
-        </li>
-      <% end %>
-    </ul>
+    <%= render "shared/all_relatives" %>
   </div><!-- End all relatives-->
+
 </div> <!-- end of 3 column layout-->
 <%= link_to "Done", user_path(current_user), class: 'btn btn-default' %>
