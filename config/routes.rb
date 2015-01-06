@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
 
+  # This controller handles making "cards" which touch 3 models
+  get 'cards/index',        to: 'cards#index',      as: :cards
+  get 'cards/new',          to: 'cards#new',        as: :new_card
+  post 'cards/create',      to: 'cards#create'
+  get 'cards/show',         to: 'cards#show',       as: :card
+  patch 'cards/update',     to: 'cards#update',     as: :update_card
+  delete 'cards/destroy',   to: 'cards#destroy'
+  get 'cards/edit',         to: 'cards#edit',       as: :edit_card
+
   # Relations Join Table Routes
   get 'relations/index',    to: 'relations#index',  as: :relations
   get 'relations/new',      to: 'relations#new',    as: :new_relation
@@ -14,8 +23,8 @@ Rails.application.routes.draw do
   get 'relatives/new',  to: 'relatives#new',      as: :new_relative
   post 'relatives',     to: 'relatives#create'
   get 'relatives/:id',   to: 'relatives#show',    as: :relative
-  patch 'relatives', to: 'relatives#update',  as: :update_relative
-  delete 'relatives/:id', to: 'relatives#destroy'
+  patch 'relatives/:id', to: 'relatives#update',  as: :update_relative
+  delete 'relatives/:id', to: 'relatives#destroy',as: :delete_relative
   get 'relatives/:id/edit', to: 'relatives#edit', as: :edit_relative
 
   # Decks Routes

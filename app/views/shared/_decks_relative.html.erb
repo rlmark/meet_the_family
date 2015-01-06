@@ -2,10 +2,9 @@
 <ul class='no-bullets'>
   <% @decks_relative.each do |relative| %>
   <li class='small-card'>
-    <%= link_to update_relative_path( :subtract => relative.id), method: 'patch' do%>
+    <%= link_to update_card_path( :subtract => relative.id), method: 'patch' do%>
       <span class="glyphicon glyphicon-minus-sign subtract"></span>
     <% end %>
-
     <%= relative.firstname %> <%= relative.lastname %>
   </li>
   <% end %>
