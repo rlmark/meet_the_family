@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # This controller handles making "cards" which touch 3 models
   get 'cards/index',        to: 'cards#index',      as: :cards
   get 'cards/new',          to: 'cards#new',        as: :new_card
-  post 'cards/create',      to: 'cards#create'
+  post 'cards/create',      to: 'cards#create',     as: :create_card
   get 'cards/show',         to: 'cards#show',       as: :card
   patch 'cards/update',     to: 'cards#update',     as: :update_card
   delete 'cards/destroy',   to: 'cards#destroy'
