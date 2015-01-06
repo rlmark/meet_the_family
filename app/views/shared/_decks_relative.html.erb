@@ -5,7 +5,9 @@
     <%= link_to update_card_path( :subtract => relative.id), method: 'patch' do%>
       <span class="glyphicon glyphicon-minus-sign subtract"></span>
     <% end %>
-
+    <%= link_to edit_relative_path(relative.id), class: 'edit' do %>
+      <span class="glyphicon glyphicon-edit"></span>
+    <% end %>
     <%= relative.firstname %> <%= relative.lastname %>
   </li>
   <% end %>

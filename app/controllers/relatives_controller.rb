@@ -33,30 +33,24 @@ class RelativesController < ApplicationController
   end
 
   def update
-    if params[:add]
-      @relative = Relative.find(params[:add])
-      @relative.deck_id = session[:deck_id]
-      @relative.save
-      redirect_to new_relative_path
-    end
-    if params[:subtract]
-      @relative = Relative.find(params[:subtract])
-      @relative.deck_id = nil
-      @relative.save
-      redirect_to new_relative_path
-    end
+    @relative = Relative.find(params[:id])
+    @relative.update(relative_params)
+    @relation = @relative.relations
+    @relation[0].update(relation_params)
+    redirect_to edit_card_path(session[:card_id])
   end
 
   def edit
-    @deck = Deck.find(session[:deck_id])
-    @relative = Relative.new
-    @relation = Relation.new
-    @decks_relative = Relative.where(deck_id: session[:deck_id])
-    # the relatives belonging to the user
-    relations = Relation.where(familymember_id: current_user.relative_id)
-    @relatives = relations.collect do |join|
-      join.relative
-    end
+    @relative = Relative.find(params[:id])
+    # @deck = Deck.find(session[:deck_id])
+    # @relative = Relative.new
+    @relation = Relation.find(@relative.relations[0].id)
+    # @decks_relative = Relative.where(deck_id: session[:deck_id])
+    # # the relatives belonging to the user
+    # relations = Relation.where(familymember_id: current_user.relative_id)
+    # @relatives = relations.collect do |join|
+    #   join.relative
+    # end
   end
 
   def destroy
