@@ -32,13 +32,20 @@
   <%= f.label :lastname, "Last Name" %>
   <%= f.text_field :lastname, class: 'form-control' %>
 </div>
-
+<hr>
 <div class='form-field'>
   <%= f.label :avatar, "Upload a photo" %>
   <%= f.file_field :avatar %>
   <%= f.hidden_field :avatar_cache %>
 </div>
 
+<!-- <div class='form-field'>
+  <%#= f.label :remote_avatar_url, "Or provide a link" %>
+  <%#= image_tag(@relative.avatar_url) if @relative.avatar? %><br>
+  <%#g= f.text_field :remote_avatar_url %>
+</div> -->
+
+<hr>
 <div class='form-field'>
   <b>Pronouns</b>
   <ul class='no-bullets'>
