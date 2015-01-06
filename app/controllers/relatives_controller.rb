@@ -42,15 +42,7 @@ class RelativesController < ApplicationController
 
   def edit
     @relative = Relative.find(params[:id])
-    # @deck = Deck.find(session[:deck_id])
-    # @relative = Relative.new
     @relation = Relation.find(@relative.relations[0].id)
-    # @decks_relative = Relative.where(deck_id: session[:deck_id])
-    # # the relatives belonging to the user
-    # relations = Relation.where(familymember_id: current_user.relative_id)
-    # @relatives = relations.collect do |join|
-    #   join.relative
-    # end
   end
 
   def destroy

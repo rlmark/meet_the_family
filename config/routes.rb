@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   post 'relatives',     to: 'relatives#create'
   get 'relatives/:id',   to: 'relatives#show',    as: :relative
   patch 'relatives/:id', to: 'relatives#update',  as: :update_relative
-  delete 'relatives/:id', to: 'relatives#destroy'
+  delete 'relatives/:id', to: 'relatives#destroy',as: :delete_relative
   get 'relatives/:id/edit', to: 'relatives#edit', as: :edit_relative
 
   # Decks Routes
