@@ -16,6 +16,7 @@ class RelativesController < ApplicationController
     @relatives = relations.collect do |join|
       join.relative
     end
+    redirect_to new_card_path
   end
 
   def create
