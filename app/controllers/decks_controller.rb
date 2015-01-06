@@ -8,7 +8,7 @@ class DecksController < ApplicationController
     @deck.user_id = current_user.id
     if @deck.save
       session[:deck_id] = @deck.id
-      redirect_to new_relative_path
+      redirect_to new_card_path
     else
       render :new
     end
@@ -17,7 +17,7 @@ class DecksController < ApplicationController
   def update
     @deck = Deck.update(params[:id], name: params[:deck][:name] )
     session[:deck_id] = @deck.id
-    redirect_to edit_relative_path
+    redirect_to edit_card_path
   end
 
   def edit
