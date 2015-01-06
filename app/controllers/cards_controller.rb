@@ -22,6 +22,7 @@ class CardsController < ApplicationController
   end
 
   def create
+    raise params.inspect
     @relative = Relative.new(relative_params)
     @relative.deck_id = session[:deck_id]
     if @relative.save
@@ -71,7 +72,7 @@ class CardsController < ApplicationController
   private
 
   def relative_params
-    params.require(:relative).permit(:firstname, :lastname, :notes, :pronouns, :likes, :dislikes)
+    params.require(:relative).permit(:firstname, :lastname, :notes, :pronouns, :likes, :dislikes, :avatar)
   end
 
   def relation_params
