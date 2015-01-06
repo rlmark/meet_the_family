@@ -42,6 +42,7 @@ gem 'rails_12factor', group: :production
 
 gem 'carrierwave'
 gem 'fog'
+gem "mini_magick"
 
 # Use unicorn as the app server
 # gem 'unicorn'

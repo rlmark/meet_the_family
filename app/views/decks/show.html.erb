@@ -4,6 +4,8 @@
 <% @relatives.each_with_index do |relative, i| %>
 
 <div class='small-card'>
+  <%= image_tag relative.avatar.url(:thumb), class: "img img-responsive thumbnail" %>
+
   <h3><%= @relations[i].title %> <%= relative.firstname %> <%= relative.lastname %></h3>
 
   <h4>Notes:</h4>
